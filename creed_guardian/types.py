@@ -1,6 +1,6 @@
 """Type definitions for Creed Guardian."""
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum
 from typing import Literal
 

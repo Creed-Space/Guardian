@@ -53,11 +53,13 @@ SUSPICIOUS_PATTERNS = [
 MAX_INPUT_LENGTH = 10000  # 10KB per field
 
 # Security: SSRF protection - blocked metadata endpoints
-BLOCKED_HOSTS = frozenset({
-    "169.254.169.254",  # AWS metadata
-    "metadata.google.internal",  # GCP metadata
-    "metadata.azure.com",  # Azure metadata
-})
+BLOCKED_HOSTS = frozenset(
+    {
+        "169.254.169.254",  # AWS metadata
+        "metadata.google.internal",  # GCP metadata
+        "metadata.azure.com",  # Azure metadata
+    }
+)
 
 # Private IP ranges (RFC 1918)
 PRIVATE_RANGES = [

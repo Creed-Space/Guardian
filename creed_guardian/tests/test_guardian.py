@@ -93,11 +93,11 @@ class TestGuardianCheck:
     @pytest.fixture
     def mock_client(self):
         """Create a mock Ollama client."""
-        with patch("creed_guardian.guardian.OllamaClient") as MockClient:
+        with patch("creed_guardian.guardian.OllamaClient") as mock_client_cls:
             client = AsyncMock()
             client.check_connection = AsyncMock(return_value=True)
             client.is_model_available = AsyncMock(return_value=True)
-            MockClient.return_value = client
+            mock_client_cls.return_value = client
             yield client
 
     @pytest.mark.asyncio
@@ -180,12 +180,12 @@ class TestGuardianSyncMethods:
 
     def test_check_sync(self):
         """check_sync should work synchronously."""
-        with patch("creed_guardian.guardian.OllamaClient") as MockClient:
+        with patch("creed_guardian.guardian.OllamaClient") as mock_client_cls:
             client = AsyncMock()
             client.check_connection = AsyncMock(return_value=True)
             client.is_model_available = AsyncMock(return_value=True)
             client.generate = AsyncMock(return_value="SAFE")
-            MockClient.return_value = client
+            mock_client_cls.return_value = client
 
             guardian = Guardian(tier="1.5b")
             result = guardian.check_sync(action="test action")
@@ -199,12 +199,12 @@ class TestGuardianDecorator:
     @pytest.mark.asyncio
     async def test_protect_allows_safe_function(self):
         """Protected function should execute when action is safe."""
-        with patch("creed_guardian.guardian.OllamaClient") as MockClient:
+        with patch("creed_guardian.guardian.OllamaClient") as mock_client_cls:
             client = AsyncMock()
             client.check_connection = AsyncMock(return_value=True)
             client.is_model_available = AsyncMock(return_value=True)
             client.generate = AsyncMock(return_value="SAFE")
-            MockClient.return_value = client
+            mock_client_cls.return_value = client
 
             guardian = Guardian(tier="1.5b")
 
@@ -218,12 +218,12 @@ class TestGuardianDecorator:
     @pytest.mark.asyncio
     async def test_protect_blocks_unsafe_function(self):
         """Protected function should raise PermissionError when blocked."""
-        with patch("creed_guardian.guardian.OllamaClient") as MockClient:
+        with patch("creed_guardian.guardian.OllamaClient") as mock_client_cls:
             client = AsyncMock()
             client.check_connection = AsyncMock(return_value=True)
             client.is_model_available = AsyncMock(return_value=True)
             client.generate = AsyncMock(return_value="UNSAFE")
-            MockClient.return_value = client
+            mock_client_cls.return_value = client
 
             guardian = Guardian(tier="1.5b")
 
@@ -264,13 +264,13 @@ class TestGuardianContextManager:
     @pytest.mark.asyncio
     async def test_context_manager(self):
         """Guardian should work as async context manager."""
-        with patch("creed_guardian.guardian.OllamaClient") as MockClient:
+        with patch("creed_guardian.guardian.OllamaClient") as mock_client_cls:
             client = AsyncMock()
             client.check_connection = AsyncMock(return_value=True)
             client.is_model_available = AsyncMock(return_value=True)
             client.generate = AsyncMock(return_value="SAFE")
             client.close = AsyncMock()
-            MockClient.return_value = client
+            mock_client_cls.return_value = client
 
             async with Guardian(tier="1.5b") as guardian:
                 result = await guardian.check(action="test")
@@ -340,20 +340,20 @@ class TestInputSanitization:
     @pytest.fixture
     def mock_client(self):
         """Create a mock Ollama client."""
-        with patch("creed_guardian.guardian.OllamaClient") as MockClient:
+        with patch("creed_guardian.guardian.OllamaClient") as mock_client_cls:
             client = AsyncMock()
             client.check_connection = AsyncMock(return_value=True)
             client.is_model_available = AsyncMock(return_value=True)
-            MockClient.return_value = client
+            mock_client_cls.return_value = client
             yield client
 
     def test_input_length_validation(self):
         """Inputs exceeding max length should raise ValueError."""
-        with patch("creed_guardian.guardian.OllamaClient") as MockClient:
+        with patch("creed_guardian.guardian.OllamaClient") as mock_client_cls:
             client = AsyncMock()
             client.check_connection = AsyncMock(return_value=True)
             client.is_model_available = AsyncMock(return_value=True)
-            MockClient.return_value = client
+            mock_client_cls.return_value = client
 
             guardian = Guardian(tier="1.5b")
 
