@@ -3,7 +3,7 @@
 **Local AI safety for any device. Free forever.**
 
 [![PyPI version](https://badge.fury.io/py/creed-guardian.svg)](https://badge.fury.io/py/creed-guardian)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 Creed Guardian is a lightweight AI safety layer that evaluates agent actions locally before execution. It uses Ollama-powered models to catch unsafe actions without cloud dependencies, API costs, or data egress.
@@ -180,7 +180,7 @@ For cloud features (escalation, fleet management, custom constitutions), check o
 - [Documentation](https://creed.space/docs/guardian)
 - [API Reference](https://creed.space/docs/guardian/api)
 - [Creed Space](https://creed.space)
-- [GitHub](https://github.com/Creed-Space/guardian)
+- [GitHub](https://github.com/Creed-Space/Guardian)
 
 ## Security Considerations
 
@@ -206,7 +206,7 @@ Report security vulnerabilities to security@creed.space. Do not open public issu
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Apache License 2.0 - see [LICENSE](LICENSE) for details.
 
 ---
 
