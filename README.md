@@ -1,6 +1,6 @@
 # Creed Guardian
 
-> **PyPI 0.1.1 is an unsafe preview and must not be used as an enforcement boundary.**
+> **PyPI 0.1.1 is an unsafe preview and must not be used as an enforcement boundary.** This repository's source is version 0.1.1, the same version as that unsafe preview; the repaired 2.1.0 candidate is not yet mirrored here.
 >
 > **Release evidence notice:** Published Guardian efficacy percentages are withheld until a release-candidate claim record binds them to an immutable dataset, model digest, prompt, runtime, sample size, and confidence interval.
 
@@ -16,8 +16,8 @@ Creed Guardian is a lightweight AI safety layer that evaluates agent actions loc
 
 ```bash
 # Install Guardian
-# PyPI currently serves only the unsafe 0.1.1 preview. The pinned 2.1.0 command will fail until the repaired candidate is published and verified.
-python -m pip install creed-guardian==2.1.0
+# PyPI currently serves only the unsafe 0.1.1 preview, and this repository's source is also 0.1.1.
+# No install command is given until the repaired 2.1.0 candidate is published and verified.
 
 # Install Ollama (required)
 # macOS: brew install ollama
@@ -46,7 +46,7 @@ else:
 ## Features
 
 - **Offline-first**: Works without internet
-- **Privacy-preserving**: Data never leaves your device
+- **Privacy-preserving**: With the default local Ollama URL, data never leaves your device
 - **Zero marginal cost**: No API fees for local evaluation
 - **Fail-safe**: Blocks on uncertainty (configurable)
 - **Auto-scaling**: Selects optimal model for your hardware
@@ -174,11 +174,11 @@ For cloud features (escalation, fleet management, custom constitutions), check o
 | Feature | Guardian (Free) | Creed Space |
 |---------|-----------------|-------------|
 | Local evaluation | Unlimited | Unlimited |
-| All model tiers | Yes | Yes |
-| Cloud escalation | - | Not yet implemented in this package |
-| Custom constitutions | - | Yes |
-| Fleet dashboard | - | Yes |
-| Analytics | - | Yes |
+| All model tiers | Yes | See creed.space/guardian |
+| Cloud escalation | Parameter exists; stub, returns uncertain | See creed.space/guardian |
+| Custom constitutions | Per-call principle | See creed.space/guardian |
+| Fleet dashboard | - | See creed.space/guardian |
+| Analytics | - | See creed.space/guardian |
 
 ## Links
 

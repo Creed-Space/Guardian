@@ -1,7 +1,8 @@
 """
 Creed Guardian - Local AI Safety for Supported Devices.
 
-Free and open source under Apache 2.0. No API costs. No data leaves your device.
+Free and open source under Apache 2.0. No API costs. With the default local
+Ollama URL, no data leaves your device.
 
 Example:
     from creed_guardian import Guardian

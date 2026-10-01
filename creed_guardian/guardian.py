@@ -1,7 +1,8 @@
 """
 Creed Guardian - Local AI Safety for Supported Devices.
 
-Free and open source under Apache 2.0. No API costs. No data leaves your device.
+Free and open source under Apache 2.0. No API costs. With the default local
+Ollama URL, no data leaves your device.
 """
 
 import asyncio
@@ -96,7 +97,8 @@ class Guardian:
     """
     Creed Guardian - Local AI Safety for Supported Devices.
 
-    Free and open source under Apache 2.0. No API costs. No data leaves your device.
+    Free and open source under Apache 2.0. No API costs. With the default local
+    Ollama URL, no data leaves your device.
 
     Example:
         guardian = Guardian()  # Auto-selects best model for your hardware
@@ -132,7 +134,8 @@ class Guardian:
             api_key: Optional Creed Space API key for cloud features
             ollama_url: Ollama server URL
             constitution: Constitution ID or YAML path
-            escalate_uncertain: Send uncertain cases to cloud (requires api_key)
+            escalate_uncertain: Reserved for cloud escalation (not yet implemented;
+                uncertain cases still return allowed=False)
             fail_closed: Block uncertain cases when offline (default: True)
             auto_download: Automatically download model if not available
             evaluation_timeout: Timeout in seconds for evaluation
