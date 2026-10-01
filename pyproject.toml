@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "creed-guardian"
 version = "0.1.1"
-description = "Local AI safety for any device. Free forever."
+description = "Local Guardian source for supported devices. Free and open source under Apache 2.0."
 readme = "README.md"
 license = {text = "Apache-2.0"}
 authors = [{name = "Creed Space", email = "hello@creed.space"}]

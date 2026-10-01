@@ -1,7 +1,7 @@
 """
-Creed Guardian - Local AI Safety for Any Device.
+Creed Guardian - Local AI Safety for Supported Devices.
 
-Free forever. No API costs. No data leaves your device.
+Free and open source under Apache 2.0. No API costs. No data leaves your device.
 
 Example:
     from creed_guardian import Guardian

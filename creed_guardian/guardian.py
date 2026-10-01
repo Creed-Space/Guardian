@@ -1,7 +1,7 @@
 """
-Creed Guardian - Local AI Safety for Any Device.
+Creed Guardian - Local AI Safety for Supported Devices.
 
-Free forever. No API costs. No data leaves your device.
+Free and open source under Apache 2.0. No API costs. No data leaves your device.
 """
 
 import asyncio
@@ -93,9 +93,9 @@ DEFAULT_PRINCIPLE = (
 
 class Guardian:
     """
-    Creed Guardian - Local AI Safety for Any Device.
+    Creed Guardian - Local AI Safety for Supported Devices.
 
-    Free forever. No API costs. No data leaves your device.
+    Free and open source under Apache 2.0. No API costs. No data leaves your device.
 
     Example:
         guardian = Guardian()  # Auto-selects best model for your hardware

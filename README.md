@@ -1,10 +1,14 @@
 # Creed Guardian
 
-**Local AI safety for any device. Free forever.**
+> **PyPI 0.1.1 is an unsafe preview and must not be used as an enforcement boundary.**
+>
+> **Release evidence notice:** Published Guardian efficacy percentages are withheld until a release-candidate claim record binds them to an immutable dataset, model digest, prompt, runtime, sample size, and confidence interval.
+
+**Local Guardian source for supported devices. Free and open source under Apache 2.0.**
 
 [![PyPI version](https://badge.fury.io/py/creed-guardian.svg)](https://badge.fury.io/py/creed-guardian)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 Creed Guardian is a lightweight AI safety layer that evaluates agent actions locally before execution. It uses Ollama-powered models to catch unsafe actions without cloud dependencies, API costs, or data egress.
 
@@ -12,7 +16,8 @@ Creed Guardian is a lightweight AI safety layer that evaluates agent actions loc
 
 ```bash
 # Install Guardian
-pip install creed-guardian
+# PyPI currently serves only the unsafe 0.1.1 preview. The pinned 2.1.0 command will fail until the repaired candidate is published and verified.
+python -m pip install creed-guardian==2.1.0
 
 # Install Ollama (required)
 # macOS: brew install ollama
@@ -50,15 +55,15 @@ else:
 
 Guardian automatically selects the best model based on available RAM:
 
-| Tier | Model | Size | RAM | Accuracy | Use Case |
-|------|-------|------|-----|----------|----------|
-| **1.5b** | qwen2.5:1.5b | ~1GB | 2GB | 60% (100% recall) | IoT, embedded |
-| **3b** | qwen2.5:3b | ~2GB | 4GB | 72% | Tablets, light laptops |
-| **7b** | qwen2.5:7b | ~5GB | 8GB | 82% | Laptops, dev machines |
-| **14b** | qwen2.5:14b | ~9GB | 12GB | 91% | Servers, workstations |
-| **32b** | qwen2.5:32b | ~19GB | 20GB | 91% | High-security |
+| Tier | Model | Size | RAM | Use Case |
+|------|-------|------|-----|----------|
+| **1.5b** | qwen2.5:1.5b | ~1GB | 2GB | IoT, embedded |
+| **3b** | qwen2.5:3b | ~2GB | 4GB | Tablets, light laptops |
+| **7b** | qwen2.5:7b | ~5GB | 8GB | Laptops, dev machines |
+| **14b** | qwen2.5:14b | ~9GB | 12GB | Servers, workstations |
+| **32b** | qwen2.5:32b | ~19GB | 20GB | High-security |
 
-All tiers should typically catch **100% of obvious safety violations** (100% recall). Higher tiers reduce false positives.
+Published Guardian efficacy percentages are withheld until a release-candidate claim record binds them to an immutable dataset, model digest, prompt, runtime, sample size, and confidence interval.
 
 ## Usage
 
@@ -156,13 +161,13 @@ class GuardianResult:
 
 ## Requirements
 
-- Python 3.9+
+- Python 3.10+
 - [Ollama](https://ollama.com/) running locally
 - 2GB+ RAM (4GB+ recommended)
 
 ## Need More?
 
-**Creed Guardian is free forever** for local evaluation.
+**Creed Guardian's local package is free and open source under Apache 2.0.** Hosted service availability and charges depend on deployment terms.
 
 For cloud features (escalation, fleet management, custom constitutions), check out [Creed Space](https://creed.space/guardian):
 
@@ -170,7 +175,7 @@ For cloud features (escalation, fleet management, custom constitutions), check o
 |---------|-----------------|-------------|
 | Local evaluation | Unlimited | Unlimited |
 | All model tiers | Yes | Yes |
-| Cloud escalation | - | Yes |
+| Cloud escalation | - | Not yet implemented in this package |
 | Custom constitutions | - | Yes |
 | Fleet dashboard | - | Yes |
 | Analytics | - | Yes |
@@ -189,7 +194,7 @@ For cloud features (escalation, fleet management, custom constitutions), check o
 Guardian uses LLM-based evaluation, which is inherently susceptible to prompt injection attacks. An adversary could craft inputs designed to manipulate the model's decision. Mitigations:
 
 1. **Fail-closed default**: Uncertain responses are blocked
-2. **Input sanitization**: Suspicious patterns are flagged
+2. **Input checks**: Over-length inputs are rejected and runs of newlines are collapsed; suspicious patterns are logged, not blocked
 3. **Defense in depth**: Guardian is one layer, not the only layer
 
 **Recommendation**: Use Guardian alongside other security measures, not as a sole defense.
