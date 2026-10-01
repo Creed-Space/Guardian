@@ -6,6 +6,7 @@ Free and open source under Apache 2.0. No API costs. No data leaves your device.
 
 import asyncio
 import functools
+import inspect
 import logging
 import re
 import time
@@ -443,7 +444,7 @@ ACTION: {action}
 
             return func(*args, **kwargs)
 
-        if asyncio.iscoroutinefunction(func):
+        if inspect.iscoroutinefunction(func):
             return async_wrapper  # type: ignore[return-value]
         return sync_wrapper  # type: ignore[return-value]
 
