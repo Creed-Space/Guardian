@@ -10,9 +10,13 @@ Creed Guardian is a lightweight AI safety layer that evaluates agent actions loc
 
 ## Quick Start
 
+> **Release pending on PyPI.** PyPI currently serves only the unsafe 0.1.1 preview. The pinned
+> 2.1.0 command below will fail until the repaired candidate is published and verified. Do not
+> install an unpinned `creed-guardian`.
+
 ```bash
-# Install Guardian
-pip install creed-guardian
+# Install Guardian (pinned; works once 2.1.0 is published on PyPI)
+python -m pip install creed-guardian==2.1.0
 
 # Install Ollama (required)
 # macOS: brew install ollama
